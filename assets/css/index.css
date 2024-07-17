@@ -217,6 +217,10 @@ body {
   line-height: var(--bs-body-line-height);
   margin: 0;
   text-align: var(--bs-body-text-align);
+  margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 hr {
   border: 0;
@@ -4802,10 +4806,10 @@ progress {
   text-decoration: none;
 }
 .carousel-control-prev {
-  left: -8%;
+  left: -4%;
 }
 .carousel-control-next {
-  right: -8%;
+  right: -4%;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
@@ -13153,8 +13157,8 @@ progress {
   }
 }
 .bsb-tpl-header-sticky.sticky-top.stuck .navbar {
-  max-height: 72px;
-  min-height: 72px;
+  max-height: 5%;
+  min-height: 5%;
   transition: all 0.5s;
 }
 @media (min-width: 1200px) {
@@ -13195,7 +13199,7 @@ progress {
 }
 /* logo da navbar*/
 .bsb-tpl-logo-footer {
-  height: 60px;
+  height: 5%;
   width: auto;
 }
 
