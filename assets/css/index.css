@@ -79,9 +79,9 @@
   --bs-accent-border-subtle: #da9999;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: font-family: "amiri", sans-serif;
+  --bs-font-sans-serif: font-family: "Montserrat", sans-serif;
 
-  --bs-font-monospace: font-family: "amiri", sans-serif;
+  --bs-font-monospace: font-family: "Montserrat", sans-serif;
  
   --bs-gradient: linear-gradient(
     180deg,
@@ -261,7 +261,7 @@ font-style: normal;
 }
 .h2,
 h2 {
-  color: #000;
+  color: #00112c;
   font-size: calc(1.325rem + 0.9vw);
 }
 @media (min-width: 1200px) {
@@ -283,7 +283,7 @@ h3 {
 .h4,
 h4 {
   font-size: calc(1.275rem + 0.3vw);
-  color: #000;
+  color: #00112c;
 }
 @media (min-width: 1200px) {
   .h4,
@@ -4712,11 +4712,21 @@ progress {
   backface-visibility: hidden;
   display: none;
   float: left;
+  justify-content: center;
+  align-items: center;
   margin-right: -100%;
   position: relative;
   transition: transform 0.6s ease-in-out;
   width: 100%;
 }
+
+.carousel-item .card img{
+  height: 100%;
+  width: 100%; 
+  object-fit: cover;
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
     transition: none;
@@ -4761,10 +4771,10 @@ progress {
 .carousel-control-next,
 .carousel-control-prev {
   align-items: center;
-  background: none;
+  background-color: transparent;
   border: 0;
   bottom: 0;
-  color: #fff;
+  color: #ff1212;
   display: flex;
   justify-content: center;
   opacity: 0.5;
@@ -4773,7 +4783,7 @@ progress {
   text-align: center;
   top: 0;
   transition: opacity 0.15s ease;
-  width: 15%;
+  width: 5%;
   z-index: 1;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4786,16 +4796,16 @@ progress {
 .carousel-control-next:hover,
 .carousel-control-prev:focus,
 .carousel-control-prev:hover {
-  color: #fff;
+  color: #000000;
   opacity: 0.9;
   outline: 0;
   text-decoration: none;
 }
 .carousel-control-prev {
-  left: 0;
+  left: -8%;
 }
 .carousel-control-next {
-  right: 0;
+  right: -8%;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
@@ -4818,7 +4828,7 @@ progress {
   justify-content: center;
   left: 0;
   margin-bottom: 1rem;
-  margin-left: 15%;
+  margin-left: 5%;
   margin-right: 15%;
   padding: 0;
   position: absolute;
