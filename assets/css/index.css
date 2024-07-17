@@ -680,7 +680,7 @@
     .img-fluid,
     .img-thumbnail {
       height: 100%;
-      max-width: 100%;
+      width: 100%;
     }
     .img-fluid-custom {
       max-width: 100%;
