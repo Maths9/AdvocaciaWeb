@@ -682,6 +682,10 @@
       height: 100%;
       max-width: 100%;
     }
+    .img-fluid-custom {
+      max-width: 100%;
+      height: auto;
+  }
     .img-thumbnail {
       background-color: var(--bs-body-bg);
       border: var(--bs-border-width) solid var(--bs-border-color);
