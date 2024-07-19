@@ -2489,7 +2489,7 @@
     }
     .nav {
       --bs-nav-link-padding-x: 1rem;
-      --bs-nav-link-padding-y: 0.5rem;
+      --bs-nav-link-padding-y: 0rem;
       --bs-nav-link-font-weight: ;
       --bs-nav-link-color: var(--bs-link-color);
       --bs-nav-link-hover-color: var(--bs-link-hover-color);
@@ -4724,6 +4724,7 @@
       color: var(--bs-popover-body-color);
       padding: var(--bs-popover-body-padding-y) var(--bs-popover-body-padding-x);
     }
+
     .carousel {
       position: relative;
     }
@@ -4734,6 +4735,7 @@
       overflow: hidden;
       position: relative;
       width: 100%;
+      left: 0%;
     }
     .carousel-inner:after {
       clear: both;
@@ -4801,6 +4803,7 @@
         transition: none;
       }
     }
+    
     .carousel-control-next,
     .carousel-control-prev {
       align-items: center;
@@ -4816,13 +4819,17 @@
       text-align: center;
       top: 0;
       transition: opacity 0.15s ease;
-      width: 5%;
+      
       z-index: 1;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .carousel-control-next,
-      .carousel-control-prev {
+    @media (max-width: 575.98px) {
+     
+      .carousel-item {
         transition: none;
+        left: 7%;
+      }
+      .carousel-control-next{
+        right: 16%;
       }
     }
     .carousel-control-next:focus,
@@ -4835,14 +4842,14 @@
       text-decoration: none;
     }
     .carousel-control-prev {
-      left: -4%;
+      left: 0%;
     }
     .carousel-control-next {
-      right: -4%;
+      right: 1.5%;
     }
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
-      background-position: 50%;
+      background-position: 70%;
       background-repeat: no-repeat;
       background-size: 100% 100%;
       display: inline-block;
@@ -13199,7 +13206,7 @@
     /* logo da navbar*/
     .navbar-brand .bsb-tpl-logo {
       color: #fff;
-      max-height: 5.0rem;
+      max-height: 3.5rem;
       transition: all 0.5s;
       width: auto;
     }
