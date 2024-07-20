@@ -2502,7 +2502,7 @@
     }
     /*backgroundhome*/
     .bsb-cta-1.px-2.bsb-overlay{
-      background-image: url('/assets/img/hero/backgroundNovo.png');
+      background-image: url('./assets/img/hero/backgroundNovo.png');
     }
     .nav-link {
       background: none;
