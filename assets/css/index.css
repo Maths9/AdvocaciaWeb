@@ -776,7 +776,7 @@
       flex-wrap: wrap;
       justify-content: center;
       margin-left: calc(var(--bs-gutter-x) * -0.5);
-      margin-right: calc(var(--bs-gutter-x) * -0.5);
+   
       margin-top: calc(var(--bs-gutter-y) * -1);
     }
     .row > * {
@@ -1666,7 +1666,7 @@
       }
       .col-xl-3 {
         flex: 0 0 auto;
-        width: 25%;
+        width: 50%;
       }
       .col-xl-4 {
         flex: 0 0 auto;
@@ -2499,6 +2499,10 @@
       list-style: none;
       margin-bottom: 0;
       padding-left: 0;
+    }
+    /*backgroundhome*/
+    .bsb-cta-1.px-2.bsb-overlay{
+      background-image: url('/assets/img/hero/backgroundNovo.png');
     }
     .nav-link {
       background: none;
@@ -5640,17 +5644,13 @@
     .link-secondary:focus,
     .link-secondary:hover {
       color: RGBA(86, 94, 100, var(--bs-link-opacity, 1)) !important;
-      text-decoration-color: RGBA(
-        86,
-        94,
-        100,
-        var(--bs-link-underline-opacity, 1)
-      ) !important;
+      text-decoration-color:aquamarine;
     }
     
     .icon-link {
       align-items: center;
       backface-visibility: hidden;
+
       display: inline-flex;
       gap: 0.375rem;
       text-decoration-color: rgba(
@@ -6657,6 +6657,11 @@
     }
     .widget {
       color: white;
+      font-size: x-large;
+    }
+    .footer {
+      background-color: #343a40; /* Cor de fundo do footer */
+      color: #ffffff; /* Cor do texto */
     }
     
     .mt-0 {
@@ -6742,7 +6747,9 @@
       margin-bottom: 0.5rem !important;
     }
     .mb-3 {
-      margin-bottom: 1rem !important;
+      MARGIN-TOP: 0.5REM;
+      margin-bottom: 2rem !important;
+      
     }
     .mb-4 {
       margin-bottom: 0.1rem !important;
@@ -7065,7 +7072,7 @@
       gap: 0.25rem !important;
     }
     .gap-2 {
-      gap: 0.5rem !important;
+      gap: 1.5rem !important;
     }
     .gap-3 {
       gap: 1rem !important;
@@ -12870,10 +12877,49 @@
       animation-name: bsb-zoomIn;
     }
     .bsb-overlay {
-      --bsb-overlay-opacity: 0.5;
+      --bsb-overlay-opacity: 0.3;
       --bsb-overlay-bg-color: var(--bs-black-rgb);
       position: relative;
     }
+    footer h5 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+  }
+  
+  footer p {
+      margin-bottom: 0.5rem;
+  }
+  
+  footer a {
+      text-decoration: none;
+  }
+  
+  footer a:hover {
+      text-decoration: underline;
+  }
+  
+  footer .fa, footer .bi {
+      font-size: 1.25rem;
+  }
+  
+  footer .fa:hover, footer .bi:hover {
+      color: #0d6efd; /* Cor do ícone ao passar o mouse */
+  }
+  
+    
+    .bsb-cta-1.px-2.bsb-overlay {
+      background-image: url('/assets/img/hero/backgroundNovo.png');
+      padding-top: 12%;
+      background-size: cover; /* Faz com que a imagem cubra todo o elemento */
+      background-position: center; /* Centraliza a imagem */
+      background-repeat: no-repeat; /* Evita que a imagem se repita */
+      width: 100%; /* Garante que a largura seja 100% do container */
+  }
+  
+  .bsb-hero-2 {
+      padding-top: 2rem; /* Ajuste conforme necessário */
+   
+  }
     .bsb-overlay:after {
       background-color: rgba(
         var(--bsb-overlay-bg-color),
@@ -13210,6 +13256,10 @@
       transition: all 0.5s;
       width: auto;
     }
+    .bg-dark {
+      --bs-bg-opacity: 1;
+      background-color: var(--bs-bg-opacity)!important;
+  }
     /* logo da navbar*/
     @media (min-width: 1200px) {
       .navbar-brand .bsb-tpl-logo {
