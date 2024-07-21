@@ -3198,6 +3198,11 @@
       border-top-right-radius: var(--bs-card-inner-border-radius);
       
     }
+    .custom-card {
+      max-width: 80%; /* Ajusta a largura máxima do card */
+      max-height: 20%;
+      margin: 0 auto; /* Centraliza o card */
+  }
     
     .card-body-custom {
       padding: 1.25rem;
@@ -4858,14 +4863,14 @@
       
       z-index: 1;
     }
-    @media (max-width: 575.98px) {
+    @media (max-width: 414.98px) {
      
       .carousel-item {
         transition: none;
         left: 7%;
       }
       .carousel-control-next{
-        right: 0%;
+       left: 95%;
       }
     }
     .carousel-control-next:focus,
@@ -4878,15 +4883,15 @@
       text-decoration: none;
     }
     .carousel-control-prev {
-      left: -4%;
+      left: -7%;
     }
     .carousel-control-next {
-      right: 48%;
+      right: 19%;
     }
     
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
-      background-position: 70%;
+      background-position: 10%;
       background-repeat: no-repeat;
       background-size: 100% 100%;
       display: inline-block;
@@ -6943,8 +6948,8 @@
       padding-top: 1.5rem !important;
     }
     .py-5 {
-      padding-bottom: 3rem !important;
-      padding-top: 4rem !important;
+      padding-bottom: 1rem !important;
+      padding-top: 1rem !important;
     }
     .py-6 {
       padding-bottom: 3.5rem !important;
@@ -12942,7 +12947,7 @@
     
     .bsb-cta-1.px-2.bsb-overlay {
       background-image: url('/assets/img/hero/backgroundNovo.png');
-      padding-top: 12%;
+      padding-top: 5%;
       background-size: cover; /* Faz com que a imagem cubra todo o elemento */
       background-position: center; /* Centraliza a imagem */
       background-repeat: no-repeat; /* Evita que a imagem se repita */
