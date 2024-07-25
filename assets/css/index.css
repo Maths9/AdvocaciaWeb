@@ -12262,7 +12262,8 @@
     }
     .bsb-btn-3xl {
     
-      --bs-btn-padding-x: 1rem;
+      --bs-btn-padding-x: 3rem;
+      --bs-btn-padding-y: 1.5rem;
       --bs-btn-font-size: calc(1.28rem + 0.36vw);
       --bs-btn-border-radius: var(--bs-border-radius-lg);
     }
