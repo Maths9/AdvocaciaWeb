@@ -1,551 +1,552 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-  <!-- Required Meta Tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Document Title, Description, and Author -->
-  <title> Walmir Valença Advocacia</title>
-  <meta name="description" content="Walmir Valença Advocacia">
-  <meta name="Matheus Barboza" content="BootstrapBrain">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <title>Walmir Valença Advocacia</title>
+  <meta name="description" content="Walmir Valença Advocacia - Escritório especializado em Direito Previdenciário">
+  <meta name="author" content="Matheus Barboza">
 
-  <!-- Favicon and Touch Icons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/img/hero/faviconWalmir.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+  <style type="text/tailwindcss">
+    @layer base {
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        @apply font-montserrat antialiased text-gray-700; /* Default text color */
+      }
+      /* Custom fonts */
+      .font-montserrat { font-family: "Montserrat", sans-serif; }
+      .font-amiri { font-family: "Amiri", serif; }
+    }
 
-  <!-- Google Fonts Files -->
+    @layer components {
+      /* Custom Navbar styles */
+      .custom-navbar {
+        @apply bg-emerald-700 shadow-md;
+      }
+      .custom-navbar .nav-link {
+        @apply text-white hover:text-amber-300 px-4 py-3 text-sm uppercase font-semibold tracking-wider transition-colors duration-300;
+      }
+      /* Estilo para o link ativo do ScrollSpy */
+      .custom-navbar .nav-link.active {
+        @apply text-amber-400 font-bold;
+      }
+      .custom-navbar .navbar-brand img {
+        @apply h-16 w-auto transition-all duration-300; 
+      }
+      .custom-navbar.stuck .navbar-brand img {
+        @apply h-12; 
+      }
+      .custom-navbar .offcanvas { /* Estilizando o offcanvas com Tailwind, se necessário, mas Bootstrap CSS cuidará da base */
+        @apply bg-emerald-700;
+      }
+       .custom-navbar .btn-close { /* Garante que o botão de fechar do offcanvas seja visível */
+        @apply text-white opacity-100 filter invert; /* Invert pode ajudar se o ícone padrão for escuro */
+      }
+
+
+      /* Hero section video overlay */
+      .hero-video-overlay {
+        @apply absolute inset-0 bg-black opacity-60 z-0; 
+      }
+
+      /* Section Title Styling */
+      .section-title {
+        @apply text-4xl lg:text-5xl font-bold text-emerald-700 mb-5 tracking-tight;
+      }
+      .section-subtitle {
+        @apply text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed;
+      }
+
+      /* Service card styles */
+      .service-card {
+        @apply bg-white border border-gray-200 rounded-xl shadow-lg h-full flex flex-col p-7 text-center transition-all duration-300 hover:shadow-xl hover:scale-[1.03];
+      }
+      .service-card .badge-icon {
+        @apply bg-emerald-100 text-emerald-600 p-4 rounded-full mx-auto mb-5 inline-flex items-center justify-center;
+        width: 60px; 
+        height: 60px; 
+      }
+      .service-card .badge-icon svg {
+         width: 30px; 
+         height: 30px; 
+      }
+      .service-card h4 {
+        @apply text-xl font-semibold text-gray-800 mb-3;
+      }
+      .service-card p {
+        @apply text-gray-600 text-sm flex-grow;
+      }
+
+
+      /* Accordion styles */
+      .custom-accordion .accordion-item {
+        @apply border border-gray-200 rounded-lg mb-3 shadow-sm;
+      }
+      .custom-accordion .accordion-button { /* Estilo base para o botão do acordeão (colapsado) */
+        @apply bg-gray-50 text-gray-800 font-semibold py-4 px-6 text-left w-full transition-colors duration-300 rounded-t-lg;
+      }
+      .custom-accordion .accordion-button:hover {
+        @apply bg-emerald-50;
+      }
+      .custom-accordion .accordion-button:not(.collapsed) { 
+        @apply bg-emerald-600 text-white rounded-b-none; 
+      }
+      .custom-accordion .accordion-button:not(.collapsed):hover { 
+        @apply bg-emerald-700;
+      }
+      .custom-accordion .accordion-body {
+        @apply text-slate-800 p-6 bg-white rounded-b-lg border-t border-gray-200; 
+      }
+      .custom-accordion .accordion-button::after { 
+        content: '+'; 
+        @apply float-right text-xl font-light transition-transform duration-200 ease-in-out;
+      }
+      .custom-accordion .accordion-button:not(.collapsed)::after {
+        content: '-';
+        @apply transform rotate-0; 
+      }
+
+      /* Team member cards */
+      .team-card {
+        @apply bg-white border-0 shadow-xl rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl;
+      }
+      .team-card img {
+        @apply w-full h-96 object-cover; 
+      }
+      .team-card-body {
+        @apply p-6 text-center;
+      }
+      .team-card-body h4 {
+        @apply mb-1 text-gray-900 font-semibold text-xl;
+      }
+      .team-card-body p {
+        @apply text-emerald-600 text-sm font-medium;
+      }
+      .team-card img {
+      height: 38rem
+      }
+      /* Instagram Embed Styling (para grid) */
+      .instagram-embed-item { 
+        @apply w-full overflow-hidden flex justify-center items-center;
+         min-height: 350px; 
+      }
+      .instagram-embed-item .instagram-media {
+        margin: auto !important; 
+        max-width: 320px !important; 
+        min-width: 320px !important;
+        width: 100% !important;
+        display: block !important; 
+      }
+
+      .navbar{
+        background-color: #006d6a
+      }
+      .scrollspyFaleConosco{
+        background-color: #006d6a
+      }
+      footer.custom-footer{
+        background-color: #006d6a
+      }
+      /* Footer styles */
+      .custom-footer {
+        
+        @apply bg-gray-700 text-gray-100 py-16; 
+        
+      }
+      .custom-footer h6 {
+        @apply text-white font-semibold uppercase tracking-wider mb-5 text-base;
+      }
+      .custom-footer hr.footer-divider { 
+        @apply border-0 border-t-2 border-amber-500 w-16 mx-auto md:mx-0 mb-5;
+      }
+      .custom-footer a:not(.social-icon-link) { 
+        @apply text-gray-400 hover:text-amber-300 transition-colors duration-300;
+      }
+      .custom-footer .social-icons a.social-icon-link { 
+        @apply text-gray-300 hover:text-amber-400 mr-5 text-2xl transition-colors duration-300;
+      }
+      .custom-footer .footer-bottom {
+        @apply border-t border-gray-700 pt-8 mt-12 text-sm text-gray-500;
+      }
+    }
+  </style>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.typekit.net/fkh8wqa.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="./assets/css/index.css">
-
-  <!-- BSB Head -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#bsb-tpl-navbar" data-bs-smooth-scroll="true" tabindex="0">
-  <!-- Header -->
-  <header id="header" class="sticky-top bsb-tpl-header-sticky bsb-tpl-header-sticky-animationX">
-    <nav id="scrollspyNav" class="navbar navbar-expand-lg bsb-tpl-bg-blue bsb-navbar bsb-navbar-hover bsb-navbar-caret bsb-tpl-navbar-sticky" data-bsb-sticky-target="#header">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="./assets/img/hero/brancoDourado.png" class="bsb-tpl-logo img-fluid" alt="Walmir Valença Advocacia">
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                </svg>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul id="bsb-tpl-navbar" class="navbar-nav justify-content-end flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#scrollspySobre" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">SOBRE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#scrollspyTeam" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">EQUIPE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#scrollspyServicos" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">SERVIÇOS</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link" href="#scrollspyFaleConosco" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">CONTATO</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-  
-<section class="bsb-cta-1 px-2 bsb-overlay" style="background-image: url('./assets/img/hero/backteste.png');">
-    <section id="scrollspyHero" class="bsb-hero-2 backgroundcolor py-5 py-xl-8 py-xxl-10 img-fluid">
-      <div class="container">
-        <div class="row gy-3 gy-lg-0 align-items-center justify-content-between">
-          <div class="col-12 col-lg-6">
-            <h1 class="display-3 fw-normal mb-3">ENTRE EM <br> CONTATO</h1>
-            <p class="fs-4 mb-5">ESCRITÓRIO ESPECIALIZADO <br> EM DIREITO PREVIDENCIÁRIO</p>
-  
-            <div class="d-grid gap-2 d-sm-flex">
-                <a href="https://wa.me/+558296830252" class="btn btn-outline-primary bsb-btn-3xl rounded-pill" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-whatsapp me-2"></i> CHAMAR NO WHATSAPP
-              </a>
-           
-            </div>
-          </div id="scrollspyServicos">
-        </div >
-      </div>
-    </section>
-  </section>
-  
-  
-  <!-- Main -->
-  <main id="main">
-    <!-- Trecho da Áreas de Atuação - Services -->
-    <!-- Service 3 - Bootstrap Brain Component -->
-    <section id="scrollspyServicos" class="py-5 py-xl-8 bsb-section-py-xxl-1">
-      <div class="container mb-5 mb-md-6 mb-xl-10">
-        <div class="row justify-content-md-center">
-          <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
-            <h2 class="display-3 fw-bolder mb-4">
-              Atendimento focado no cliente
-            </h2>
-          </div>
-        </div>
-      </div>
-      <div class="container overflow-hidden">
-        <div class="row gy-5 gx-md-4 gy-lg-0 gx-xxl-5 justify-content-center">
-            <!-- Service 1 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 border-0 shadow">
-                    <div class="card-body text-center d-flex flex-column justify-content-between border border-secondary rounded">
-                        <div class="badge bg-light text-primary p-3 mb-4 mx-auto" style="width: max-content;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-telephone-forward" viewBox="0 0 16 16">
-                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708"/>
-                              </svg>
-                        </div>
-                        <h4 class="card-title mb-3">Atendimento sempre disponível para informar sobre seu processo</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Service 2 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 border-0 shadow">
-                    <div class="card-body text-center d-flex flex-column justify-content-between border border-secondary rounded">
-                        <div class="badge bg-light text-primary p-3 mb-4 mx-auto" style="width: max-content;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-                                <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                                <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
-                              </svg>
-                        </div>
-                        <h4 class="card-title mb-3">Suporte para perícias, audiências e consultas</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Service 3 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 border-0 shadow">
-                    <div class="card-body text-center d-flex flex-column justify-content-between border border-secondary rounded">
-                        <div class="badge bg-light text-primary p-3 mb-4 mx-auto" style="width: max-content;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-                                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
-                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                              </svg>
-                        </div>
-                        <h4 class="card-title mb-3">Atendimento presencial e consultoria previdenciária</h4>
-                    </div>
-                </div>
-            </div>
-            <!-- Service 4 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <div class="card h-100 border-0 shadow">
-                    <div class="card-body text-center d-flex flex-column justify-content-between border border-secondary rounded">
-                        <div class="badge bg-light text-primary p-3 mb-4 mx-auto" style="width: max-content;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
-                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
-                                <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
-                              </svg>
-                        </div>
-                        <h4 class="card-title mb-3">Advogados com expertise em direito previdenciário</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div id="scrollspySobre">
-    
-  </main>
+<body class="font-montserrat text-gray-700 bg-gray-50" data-bs-spy="scroll" data-bs-target="#scrollspyNav" data-bs-offset="75" tabindex="0"> 
+  <header id="header" class="sticky top-0 z-50 transition-shadow duration-300 custom-navbar">
 
-
-      <!-- FAQ 1 - conheça mais Sobre o escritório -->
-      <div id="scrollspySobre" class="container">
-        <div class="row gy-5 gy-lg-0 align-items-lg-center">
-            <div class="col-12 col-lg-6">
-                <img class="img-fluid img-fluid-custom rounded" loading="lazy" src="./assets/img/hero/logoDourada.png" alt="Logo Verde">
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="row justify-content-xl-end">
-                    <div class="col-12 col-xl-11">
-                        
-                        
-                        <br><div class="accordion accordion-flush" id="accordionExample">
-                            <div class="accordion-item">
-                                
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Escritório Walmir Valença
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Especializado em Direito Previdenciário, o Walmir Valença Advocacia já dignificou e transformou a vida de mais de 7.000 pessoas. Nosso escritório é reconhecido por seu compromisso com a justiça e a dignidade, oferecendo um atendimento personalizado e de alta qualidade. Atuamos de forma dedicada para garantir que nossos clientes recebam os benefícios do INSS a que têm direito, respeitando suas histórias e necessidades.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Visão
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Walmir Valença Advocacia aspira ser referência nacional em advocacia previdenciária ainda nesta década, sendo reconhecido pela transparência e pelo respeito absoluto aos direitos e ao bem-estar dos clientes, servindo como modelo de práticas éticas no direito.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Missão
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Fornecer serviços jurídicos previdenciários humanizados, garantindo máxima transparência e respeito à dignidade dos clientes.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Objetivos
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        1. Reforçar continuamente a cultura de empatia e respeito dentro do escritório.
-                                        <br>2. Ampliar a conscientização sobre os direitos previdenciários por meio de educação e informação.</br>
-                                        3. Manter uma prática exemplar de transparência em todas as interações com os clientes.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingFive">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFour">
-                                      Valores
-                                  </button>
-                              </h2>
-                              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    1. Empatia: Compreender as necessidades e desafios dos clientes.
-                                    <br>2. Integridade: Manter a honestidade e a transparência como pilares da prática.
-                                    <br>3. Compromisso: Fortalecer o protagonismo das pessoas, dedicando-se à melhoria contínua dos processos e ao sucesso dos clientes.
-                                  </div>
-                              </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container pt-5 pt-xl-8 bsb-section-pt-xxl-1">
-      <div class="card mb-3 mx-auto" style="max-width: 780px">
-          <div class="row g-0">
-              <div class="col-md-4">
-                  <img src="./assets/img/team/walmir.jpg" class="img-fluid rounded-start" alt="Walmir Valença">
-              </div>
-              <div class="col-md-8">
-                  <div class="card-body">
-                      <h5 class="card-title">Sobre o Fundador</h5>
-                      <p class="card-text">
-                          Walmir Valença entrou no Direito Previdenciário com um profundo senso de justiça, inspirado por experiências pessoais em sua família. Tendo defendido os direitos de seu pai e sua mãe em questões básicas, Walmir se sensibilizou com a realidade das pessoas que precisam dos benefícios do INSS, muitas vezes enfrentando desrespeito e dificuldades extremas. Sua paixão pela defesa dos direitos previdenciários é impulsionada pelo desejo de dignificar a vida daqueles que vivem em situações precárias e distantes. Com empatia e compromisso, Walmir lidera o escritório, transformando vidas e promovendo a dignidade social.
-                      </p>
-                      
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  
-  <!-- Adicione o CSS para torná-lo mais responsivo -->
-  <style>
-      @media (max-width: 768px) {
-          .card.mb-3 {
-              max-width: 100%;
-          }
-      }
-  </style>
-  
-    <!-- Trechos da Equipe - Team -->
-    <!-- Team 1 - Bootstrap Brain Component -->
-    <section id="scrollspyTeam" class="py-5 py-xl-8 bsb-section-py-xxl-1">
-        <div class="container mb-5 mb-md-6 mb-xl-10">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-md-10 col-lg-9 col-xl-8 col-xxl-7 text-center">
-                    <h2 class="display-3 fw-bolder mb-4">Conheça Nossa Equipe</h2>
-                </div>
-            </div>
-        </div>
-    
-        <div class="container">
-            <!-- Primeira linha com 3 cards -->
-            <div class="row gy-4 gy-lg-0 gx-xxl-5">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                        <img class="card-img-top" loading="lazy" src="./assets/img/team/walmir.jpg" alt="Imagem de Walmir Valença">
-                        <div class="card-body card-body-custom">
-                            <h4 class="mb-1">Dr. Walmir Valença</h4>
-                            <p class="text-secondary mb-0">Advogado e Diretor</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                        <img class="card-img-top" loading="lazy" src="./assets/img/team/juvenal.jpg" alt="Imagem do segundo membro da equipe">
-                        <div class="card-body card-body-custom">
-                            <h4 class="mb-1">Dr. Juvenal Oliveira</h4>
-                            <p class="text-secondary mb-0">Advogado e Gerência</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                        <img class="card-img-top" loading="lazy" src="./assets/img/team/gilberto.jpg" alt="Imagem do terceiro membro da equipe">
-                        <div class="card-body card-body-custom">
-                            <h4 class="mb-1">Gilberto Junior ㅤ</h4>
-                            <p class="text-secondary mb-0">Gerência</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Segunda linha com 3 cards -->
-            <div class="row gy-4 gy-lg-0 gx-xxl-5 mt-4">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                        <img class="card-img-top" loading="lazy" src="./assets/img/team/joana.jpg" alt="Imagem do quinto membro da equipe">
-                        <div class="card-body card-body-custom">
-                            <h4 class="mb-1">Dra. Joana Gabrielle</h4>
-                            <p class="text-secondary mb-0">Advogada</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                        <img class="card-img-top" loading="lazy" src="./assets/img/team/leticia.jpg" alt="Imagem do sexto membro da equipe">
-                        <div class="card-body card-body-custom">
-                            <h4 class="mb-1">Dra. Leticia Batista</h4>
-                            <p class="text-secondary mb-0">Advogada</p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                        <img class="card-img-top" loading="lazy" src="./assets/img/team/joanir.jpg" alt="Imagem do quarto membro da equipe">
-                        <div class="card-body card-body-custom">
-                            <h4 class="mb-1">Joanir Queiroz</h4>
-                            <p class="text-secondary mb-0">Coordenador de Relacionamento</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
-
-    <!-- trecho do Blog -->
-    <!-- Blog 2 - Bootstrap Brain Component -->
-    <section id="scrollspyBlog" class="bsb-tpl-bg-linen py-5 py-xl-8 bsb-section-py-xxl-1">
-        <div class="container">
-            <div class="row gy-5 gy-lg-0 align-items-center">
-                <div class="col-lg-5">
-                    <div id="carouselExampleDark" class="carousel carousel-dark slide custom-carousel" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <!-- Slide 1 -->
-                            <div class="carousel-item active">
-                                <article>
-                                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C9m4yA5gZjK/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                                    <script async src="//www.instagram.com/embed.js"></script>
-                                </article>
-                            </div>
-                            <!-- Slide 2 -->
-                            <div class="carousel-item">
-                                <article>
-                                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C9dePh_PxBN/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                                    <script async src="//www.instagram.com/embed.js"></script>
-                                </article>
-                            </div>
-                            <!-- Slide 3 -->
-                            <div class="carousel-item">
-                                <article>
-                                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C9U76LSgmWF/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                                    <script async src="//www.instagram.com/embed.js"></script>
-                                </article>
-                            </div>
-                            <!-- Slide 4 -->
-                            <div class="carousel-item">
-                                <article>
-                                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/C8-lN5GPVrz/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                                    <script async src="//www.instagram.com/embed.js"></script>
-                                </article>
-                            </div>
-                            <!-- Slide 5 -->
-                            <div class="carousel-item">
-                                <article>
-                                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C8ZRQgrA999/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                                    <script async src="//www.instagram.com/embed.js"></script>
-                                </article>
-                            </div>
-                            <!-- Slide 6 -->
-                            <div class="carousel-item">
-                                <article>
-                                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C8ouuOvAmF4/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
-                                    <script async src="//www.instagram.com/embed.js"></script>
-                                </article>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev d-none d-lg-block" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next d-none d-lg-block" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="card mb-3 custom-card">
-                        <img src="./assets/img/contact/mosaico.jpg" class="card-img-top" alt="Walmir Valença">
-                        <div class="card-body">
-                            <h5 class="card-title">Orgulho em Servir o Nordeste</h5>
-                            <p class="card-text">
-                                No Walmir Valença Advocacia, sentimos um profundo orgulho em estar presentes em diversos estados do Nordeste, atendendo comunidades no coração do nosso país. Cada unidade reflete nosso compromisso em garantir a dignidade e o bem-estar dos nossos clientes, levando justiça e respeito a todos que precisam dos benefícios previdenciários. Com colaboradores oriundos de diversas regiões e culturas, enriquecemos nosso atendimento com diversidade e empatia, sempre valorizando as histórias e necessidades únicas de cada cliente.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-      <!-- Adicione este script ao final do seu body para carregar as mídias do Instagram corretamente -->
-      <script async src="//www.instagram.com/embed.js"></script>
-  </main>
-    
-  <!-- Footer 2 - Bootstrap Brain Component -->
-  <footer class="footer">
-
-    <!-- Widgets - Bootstrap Brain Component -->
-<section  class="bg-light py-4 py-md-5 py-xl-8 border-top border-light">
-
-    <footer class="bg-dark text-white pt-5 pb-4">
-        <div class="container">
+    <nav id="scrollspyNav" class="relative navbar navbar-expand-lg"> 
+      <div class="container mx-auto px-4 flex justify-between items-center py-2">
+        <a id="main-logo-link" class="flex-shrink-0 navbar-brand" href="index.html"> 
+          <img src="./assets/img/hero/brancoDourado.png" class="h-16 w-auto" alt="Logo Walmir Valença Advocacia">
+        </a>
+        
+        <button class="text-white text-2xl lg:hidden focus:outline-none navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
        
-      
-          <!-- Seção de Contatos -->
-          <div  id="scrollspyFaleConosco" class="row gy-4">
-            <div class="col-12 col-md-6 col-lg-3">
-              <h6 class="text-uppercase fw-bold">Arapiraca, AL</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px;" />
-              <p><i class="fas fa-home me-2"></i> <a class="link-secondary text-decoration-none"  href="https://maps.app.goo.gl/qzt2Cs3iLWHCZHkB9" target="_blank">R. Prof. Domingos Correia, 1031 - Ouro Preto, Arapiraca - AL, 57301-100</p>
-              <p><i class="fas fa-envelope me-2"></i> <a class="link-secondary text-decoration-none" href="mailto:arapiraca@walmirvalenca.com">arapiraca@walmirvalenca.com</a></p>
-              <p><i class="fas fa-phone me-2"></i> <a class="link-secondary text-decoration-none" href="tel:+8235214567">(82) 3521-4567</a></p>
-            </div>
-      
-            <div class="col-12 col-md-6 col-lg-3">
-              <h6 class="text-uppercase fw-bold">Santana do Ipanema, AL</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px;" />
-              <p><i class="fas fa-home me-2"></i> <a class="link-secondary text-decoration-none" href="https://maps.app.goo.gl/fqWqEmgkagV4BLR57" target="_blank">Rua 26 de Julho, 330a - Monumento, Santana do Ipanema - AL, 57500-000</p>
-              <p><i class="fas fa-envelope me-2"></i> <a class="link-secondary text-decoration-none" href="mailto:santana@walmirvalenca.com">santana@walmirvalenca.com</a></p>
-              <p><i class="fas fa-phone me-2"></i> <a class="link-secondary text-decoration-none" href="tel:+8236217890">(82) 3621-7890</a></p>
-            </div>
-      
-            <div class="col-12 col-md-6 col-lg-3">
-              <h6 class="text-uppercase fw-bold">Garanhuns, PE</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px;" />
-              <p><i class="fas fa-home me-2"></i> <a class="link-secondary text-decoration-none"href="https://maps.app.goo.gl/Q5JTf9GxBhhKP3Qv9" target="_blank">Endereço: R. Dr. José Mariano, 122 - Santo Antônio, Garanhuns - PE, 55295-335</a></p>
-              <p><i class="fas fa-envelope me-2"></i> <a class="link-secondary text-decoration-none" href="mailto:garanhuns@walmirvalenca.com">garanhuns@walmirvalenca.com</a></p>
-              <p><i class="fas fa-phone me-2"></i> <a class="link-secondary text-decoration-none" href="tel:+8737611234">(87) 3761-1234</a></p>
-            </div>
-      
-            <div class="col-12 col-md-6 col-lg-3">
-              <h6 class="text-uppercase fw-bold">Itapipoca, CE</h6>
-              <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px;" />
-              <p><i class="fas fa-home me-2"></i> <a class="link-secondary text-decoration-none"  href="https://maps.app.goo.gl/kGvfmVb9d3i6XNCe6">Av. Duque de Caxias, 173 - São Sebastião, Itapipoca - CE, 62508-180</p>
-              <p><i class="fas fa-envelope me-2"></i> <a class="link-secondary text-decoration-none" href="mailto:itapipoca@walmirvalenca.com">itapipoca@walmirvalenca.com</a></p>
-              <p><i class="fas fa-phone me-2"></i> <a class="link-secondary text-decoration-none" href="tel:+8836315678">(88) 3631-5678</a></p>
-            </div>
+        <div class="offcanvas offcanvas-end lg:static lg:flex lg:items-end lg:w-auto" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header lg:hidden p-4 border-b border-emerald-600">
+            <h5 class="offcanvas-title text-white font-semibold" id="offcanvasNavbarLabel">Menu Principal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> 
           </div>
-      
-          <!-- Seção de Redes Sociais -->
-          <div class="row mt-4">
-            <div class="col-12 text-center">
-              <br><h5 class="text-uppercase mb-4 font-weight-bold">Siga-nos</h5>
-              <a href="https://www.facebook.com/walmirvalencaadv" class="text-white me-4" aria-label="Facebook">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://twitter.com/i/flow/login" class="text-white me-4" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="https://www.instagram.com/walmirvalencaadv/" class="text-white me-4" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="https://www.youtube.com/channel/UCEkJwOozeMmlBLllBgFE3KA" class="text-white" aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </div>
-          </div>
-      
-          <hr class="mb-4 mt-4">
-      
-          <!-- Seção de Copyright -->
-          <div class="row align-items-center">
-            <div class="col-12 col-md-7 text-center text-md-start mb-3 mb-md-0">
-              <p class="mb-0">© 2024. Todos os direitos reservados. <strong>Walmir Valença Advocacia</strong></p>
-            </div>
-            <div class="col-12 col-md-5 text-center text-md-end">
-              <p class="mb-0">
-                <a href="#" class="text-white">Política de Privacidade</a> |
-                <a href="#" class="text-white">Termos de Uso</a>
-              </p>
-            </div>
+          <div class="offcanvas-body flex flex-col lg:flex-row lg:items-end lg:p-0">
+            <ul class="flex flex-col lg:flex-row list-none p-0 m-0 lg:ml-auto"> 
+              <li class="nav-item w-full lg:w-auto"><a class="nav-link block w-full lg:w-auto text-left lg:text-center" href="#scrollspySobre" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Sobre Nós</a></li>
+              <li class="nav-item w-full lg:w-auto"><a class="nav-link block w-full lg:w-auto text-left lg:text-center" href="#scrollspyServicos" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Serviços</a></li>
+              <li class="nav-item w-full lg:w-auto"><a class="nav-link block w-full lg:w-auto text-left lg:text-center" href="#scrollspyTeam" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Equipe</a></li>
+              <li class="nav-item w-full lg:w-auto"><a class="nav-link block w-full lg:w-auto text-left lg:text-center" href="#scrollspyInstagram" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Instagram</a></li>
+              <li class="nav-item w-full lg:w-auto"><a class="nav-link block w-full lg:w-auto text-left lg:text-center" href="#scrollspyFaleConosco" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasNavbar">Contato</a></li>
+            </ul>
           </div>
         </div>
-      </footer>
-      
-      
-      
-      
+      </div>
+    </nav>
+  </header>
 
+  <section class="relative py-24 lg:py-36 xl:py-48 overflow-hidden text-center lg:text-left" data-aos="fade-in">
+    <video autoplay loop muted playsinline class="absolute inset-0 z-0 w-full h-full object-cover">
+      <source src="./assets/img/hero/Vídeo_de_Aposentadoria_Rural.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="container mx-auto px-6 relative z-10"> 
+      <div class="flex flex-col lg:flex-row justify-center lg:justify-start items-center">
+        <div class="w-full lg:w-2/3 xl:w-7/12" data-aos="fade-right" data-aos-delay="200">
+          <h1 class="text-white text-4xl sm:text-5xl lg:text-6xl font-amiri font-bold mb-6 leading-tight">
+            Defendendo Seus Direitos Previdenciários com Paixão e Expertise
+          </h1>
+          <p class="text-gray-200 text-lg sm:text-xl lg:text-2xl mb-10 leading-relaxed">
+            Transformamos vidas através da justiça previdenciária. Atendimento humanizado, transparente e focado em seus resultados.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start">
+            <a href="https://wa.me/+558296830252" class="inline-flex items-center justify-center px-8 py-4 bg-amber-500 border-2 border-amber-500 text-white rounded-lg text-base lg:text-lg font-semibold hover:bg-amber-600 hover:border-amber-600 transition-all duration-300 transform hover:scale-105 shadow-lg" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp mr-3 text-xl"></i> CHAMAR NO WHATSAPP
+            </a>
+            <a href="#scrollspyServicos" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg text-base lg:text-lg font-semibold hover:bg-white hover:text-emerald-700 transition-colors duration-300 shadow-lg">
+              CONHECER SERVIÇOS
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <main id="main">
+    <section id="scrollspyServicos" class="py-20 lg:py-28 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="section-title">Nossos Serviços Especializados</h2>
+          <p class="section-subtitle">Oferecemos um atendimento completo e humanizado, focado em entender sua história para construir a melhor estratégia previdenciária e garantir seus direitos.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708" /></svg>
+            </div>
+            <h4>Atendimento Contínuo</h4>
+            <p>Informações atualizadas sobre seu processo, com clareza e sempre que precisar.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" /><path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" /></svg>
+            </div>
+            <h4>Suporte Integral</h4>
+            <p>Acompanhamento completo em perícias, audiências e consultoria especializada para cada caso.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" /><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" /></svg>
+            </div>
+            <h4>Consultoria Previdenciária</h4>
+            <p>Atendimento presencial e online para planejar seu futuro e otimizar seus benefícios.</p>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="badge-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" /><path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" /></svg>
+            </div>
+            <h4>Advogados Especialistas</h4>
+            <p>Profissionais com vasta experiência e profundo conhecimento em direito previdenciário.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scrollspySobre" class="py-20 lg:py-28 bg-gray-50"> 
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+          <div class="w-full lg:w-1/2" data-aos="fade-right">
+            <img class="w-full h-auto rounded-xl shadow-xl" loading="lazy" src="./assets/img/hero/logoDourada.png" alt="Logo Walmir Valença Advocacia Dourada">
+          </div>
+          <div class="w-full lg:w-1/2" data-aos="fade-left" data-aos-delay="100">
+            <h2 class="text-3xl lg:text-4xl font-bold text-slate-900 mb-8 leading-tight">Nossa Essência: Compromisso, Transparência e Humanização</h2>
+            
+            <div class="space-y-6"> 
+              <div class="essencia-block">
+                <h3> <strong>Escritório Walmir Valença</strong></h3>
+                <p>Especializado em Direito Previdenciário, o Walmir Valença Advocacia já dignificou e transformou a vida de mais de 7.000 pessoas. Nosso escritório é reconhecido por seu compromisso com a justiça e a dignidade, oferecendo um atendimento personalizado e de alta qualidade.</p>
+              </div>
+              <div class="essencia-block">
+                <h3><strong>Visão</strong></h3>
+                <p>Ser referência nacional em advocacia previdenciária, reconhecidos pela transparência, respeito absoluto aos direitos dos clientes e como modelo de práticas éticas no direito.</p>
+              </div>
+              <div class="essencia-block">
+                <h3><strong>Missão</strong></h3>
+                <p>Fornecer serviços jurídicos previdenciários humanizados, garantindo máxima transparência e respeito à dignidade dos clientes em cada etapa do processo.</p>
+              </div>
+              <div class="essencia-block">
+                <h3><strong>Valores Fundamentais</strong></h3>
+                <p>Empatia: Compreender as necessidades e desafios de cada cliente.</p>
+                <p>Integridade: Manter a honestidade e a transparência como pilares.</p>
+                <p>Compromisso: Dedicação à melhoria contínua e ao sucesso dos clientes.</p><br>
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 lg:py-28 bg-emerald-50"> 
+      <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden lg:flex items-center" data-aos="zoom-in">
+                <div class="lg:w-2/5">
+                    <img src="./assets/img/team/walmir.jpg" class="w-full h-64 lg:h-full object-cover object-center" alt="Dr. Walmir Valença, Fundador" loading="lazy">
+                </div>
+                <div class="lg:w-3/5 p-8 md:p-12">
+                    <h3 class="text-3xl lg:text-4xl font-amiri font-bold text-emerald-700 mb-4">Uma Advocacia Nascida da Empatia</h3>
+                    <h4 class="text-xl font-semibold text-gray-800 mb-5">Dr. Walmir Valença - Fundador</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                    A trajetória de Walmir Valença no Direito Previdenciário é profundamente marcada por um aguçado senso de justiça, moldado por vivências familiares. Ao defender os direitos básicos de seus pais, Walmir compreendeu as adversidades enfrentadas por aqueles que dependem dos benefícios do INSS.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                    Sua dedicação à causa previdenciária é alimentada pelo anseio de restaurar a dignidade de pessoas em situações vulneráveis. Com empatia e firme compromisso, Walmir lidera o escritório, impactando vidas e promovendo a justiça social.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="scrollspyTeam" class="py-20 lg:py-28 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="section-title">Conheça Nossa Equipe Dedicada</h2>
+          <p class="section-subtitle">Profissionais apaixonados por garantir seus direitos e oferecer o melhor suporte jurídico, combinando expertise técnica com um atendimento acolhedor.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <img loading="lazy" src="./assets/img/team/walmir.jpg" alt="Dr. Walmir Valença">
+            <div class="team-card-body"><h4>Dr. Walmir Valença</h4><p>Advogado Fundador e Diretor</p></div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+            <img loading="lazy" src="./assets/img/team/juvenal.jpg" alt="Dr. Juvenal Oliveira">
+            <div class="team-card-body"><h4>Dr. Juvenal Oliveira</h4><p>Advogado e Gerência</p></div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+            <img loading="lazy" src="./assets/img/team/gilberto.jpg" alt="Gilberto Junior">
+            <div class="team-card-body"><h4>Gilberto Junior</h4><p>Gerência</p></div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+            <img loading="lazy" src="./assets/img/team/joana.jpg" alt="Dra. Joana Gabrielle">
+            <div class="team-card-body"><h4>Dra. Joana Gabrielle</h4><p>Advogada</p></div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="500">
+            <img loading="lazy" src="./assets/img/team/leticia.jpg" alt="Dra. Leticia Batista">
+            <div class="team-card-body"><h4>Dra. Leticia Batista</h4><p>Advogada</p></div>
+          </div>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="600">
+            <img loading="lazy" src="./assets/img/team/joanir.jpg" alt="Joanir Queiroz">
+            <div class="team-card-body"><h4>Joanir Queiroz</h4><p>Coordenador de Relacionamento</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="scrollspyInstagram" class="py-20 lg:py-28 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="section-title">Siga-nos no Instagram</h2>
+          <p class="section-subtitle">Acompanhe nosso dia a dia, dicas e novidades diretamente em nosso perfil oficial.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" data-aos="fade-up" data-aos-delay="100">
+          <div class="instagram-embed-item rounded-xl shadow-lg bg-white p-2">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DJUTZDQRhu2/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" ></blockquote>
+          </div>
+          <div class="instagram-embed-item rounded-xl shadow-lg bg-white p-2">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/C9dePh_PxBN/?utm_source=ig_embed&utm_campaign=loading" data-instgrm-version="14"></blockquote>
+          </div>
+          <div class="instagram-embed-item rounded-xl shadow-lg bg-white p-2">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DJjx74_uPK4/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" ></blockquote>
+          </div>
+         
+    </section>
+
+    <section class="py-20 lg:py-28 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-emerald-50 rounded-2xl shadow-xl overflow-hidden lg:flex items-center" data-aos="fade-up">
+                <div class="lg:w-1/2">
+                    <img src="/assets/img/contact/mosaico.jpg" class="w-full h-72 lg:h-full object-cover" alt="Walmir Valença Advocacia Mosaico - Orgulho em servir o Nordeste" loading="lazy">
+                </div>
+                <div class="lg:w-1/2 p-8 md:p-12">
+                    <h2 class="text-3xl lg:text-4xl font-amiri font-bold text-emerald-700 mb-5">Orgulho em Servir o Nordeste</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                    No Walmir Valença Advocacia, temos um profundo orgulho em nossa presença consolidada em diversos estados do Nordeste, atendendo comunidades no coração de nossa região. Cada unidade reflete nosso compromisso inabalável em garantir a dignidade e o bem-estar de nossos clientes.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                    Com uma equipe de colaboradores oriundos de diversas culturas locais, enriquecemos nosso atendimento com diversidade e empatia, valorizando as histórias e necessidades únicas de cada pessoa que busca nossos serviços.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="custom-footer">
+    <div class="container mx-auto px-6">
+      <div id="scrollspyFaleConosco" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h6>Arapiraca, AL</h6>
+          <hr class="footer-divider" />
+          <p class="mb-2"><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> <a href="https://maps.app.goo.gl/mxxUqo2tg2Lx3DCA7" target="_blank" rel="noopener noreferrer">R. Prof. Domingos Correia, 1031 - Ouro Preto, 57301-100</a></p>
+          <p class="mb-2"><i class="fas fa-envelope mr-2 text-amber-400"></i> <a href="mailto:arapiraca@walmirvalenca.com">arapiraca@walmirvalenca.com</a></p>
+          <p><i class="fas fa-phone mr-2 text-amber-400"></i> <a href="tel:+558235214567">(82) 3521-4567</a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h6>Santana do Ipanema, AL</h6>
+          <hr class="footer-divider" />
+          <p class="mb-2"><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> <a href="https://maps.app.goo.gl/5r4Lyhyirn1KsjYGA" target="_blank" rel="noopener noreferrer">Rua 26 de Julho, 330a - Monumento, 57500-000</a></p>
+          <p class="mb-2"><i class="fas fa-envelope mr-2 text-amber-400"></i> <a href="mailto:santana@walmirvalenca.com">santana@walmirvalenca.com</a></p>
+          <p><i class="fas fa-phone mr-2 text-amber-400"></i> <a href="tel:+558236217890">(82) 3621-7890</a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h6>Garanhuns, PE</h6>
+          <hr class="footer-divider" />
+          <p class="mb-2"><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> <a href="https://maps.app.goo.gl/m3A6HBUKjV1X6y5u5" target="_blank" rel="noopener noreferrer">R. Dr. José Mariano, 122 - Santo Antônio, 55295-335</a></p>
+          <p class="mb-2"><i class="fas fa-envelope mr-2 text-amber-400"></i> <a href="mailto:garanhuns@walmirvalenca.com">garanhuns@walmirvalenca.com</a></p>
+          <p><i class="fas fa-phone mr-2 text-amber-400"></i> <a href="tel:+558737611234">(87) 3761-1234</a></p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <h6>Itapipoca, CE</h6>
+          <hr class="footer-divider" />
+          <p class="mb-2"><i class="fas fa-map-marker-alt mr-2 text-amber-400"></i> <a href="https://www.google.com/maps/place/Av.+Duque+de+Caxias,+173+-+S%C3%A3o+Sebasti%C3%A3o,+Itapipoca+-+CE,+62508-180/@-3.5018411,-39.5793278,16z/data=!4m6!3m5!1s0x7c048c87f43adeb:0x3c9a206392883c87!8m2!3d-3.5018411!4d-39.5793278!16s%2Fg%2F11pw0xn69v?utm_campaign=ml-sul&g_ep=Eg1tbF8yMDI1MDUyMV8wIJvbDyoASAJQAg%3D%3D" target="_blank" rel="noopener noreferrer">Av. Duque de Caxias, 173 - São Sebastião, 62508-180</a></p>
+          <p class="mb-2"><i class="fas fa-envelope mr-2 text-amber-400"></i> <a href="mailto:itapipoca@walmirvalenca.com">itapipoca@walmirvalenca.com</a></p>
+          <p><i class="fas fa-phone mr-2 text-amber-400"></i> <a href="tel:+558836315678">(88) 3631-5678</a></p>
+        </div>
+      </div>
+
+      <div class="flex justify-center mb-10 social-icons">
+        <a href="https://www.facebook.com/walmirvalencaadv" class="social-icon-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/walmirvalencaadv" class="social-icon-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/walmirvalencaadv/" class="social-icon-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@walmirvalencaadv" class="social-icon-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+      </div>
+
+      <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-center">
+        <p class="mb-3 md:mb-0">© 2024. Todos os direitos reservados. <strong class="text-gray-200">Walmir Valença Advocacia</strong></p>
+        <p>
+          <a href="#">Política de Privacidade</a> |
+          <a href="#">Termos de Uso</a>
+        </p>
+      </div>
+    </div>
   </footer>
 
-  <!-- Javascript Files: Vendors -->
-  <script src="https://unpkg.com/jquery@3.6.1/dist/jquery.min.js"></script>
-  <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-  <script src="https://unpkg.com/isotope-packery@2.0.1/packery-mode.pkgd.min.js"></script>
-  <script src="https://unpkg.com/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"></script>
-  <script src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, 
+      once: true,    
+      offset: 50,    
+    });
+  </script>
 
-  <!-- Javascript Files: Controllers -->
-  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.getElementById('header');
+      if (header) {
+                
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) { 
+            header.classList.add('stuck');
+            header.classList.remove('shadow-md'); 
+            header.classList.add('shadow-lg'); 
+          } else {
+            header.classList.remove('stuck');
+            header.classList.remove('shadow-lg');
+            header.classList.add('shadow-md'); 
+          }
+        });
+      }
 
-  <script src="./assets/controller/project-2.js"></script>
-  <script src="./assets/controller/wave-bsb.js"></script>
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+      
+      const scrollspyNavElement = document.getElementById('scrollspyNav');
+      if (scrollspyNavElement) {
+        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+          target: '#scrollspyNav',
+          offset: 75 
+        });
+      }
 
-  <!-- BSB Body End -->
-</body>
+      const offcanvasNavbar = document.getElementById('offcanvasNavbar');
+      if (offcanvasNavbar) {
+        const navLinks = offcanvasNavbar.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            const offcanvasBootstrapInstance = bootstrap.Offcanvas.getInstance(offcanvasNavbar);
+            if (offcanvasBootstrapInstance && offcanvasNavbar.classList.contains('show')) {
+              offcanvasBootstrapInstance.hide();
+            }
+          });
+        });
+      }
 
+      // JavaScript para estilizar acordeão ativo
+      const accordionElement = document.getElementById('accordionExample');
+      if (accordionElement) {
+        const accordionItems = accordionElement.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+          const button = item.querySelector('.accordion-button');
+          const collapseElement = item.querySelector('.accordion-collapse');
+
+          if (collapseElement && button) {
+            collapseElement.addEventListener('show.bs.collapse', function () {
+              // Adiciona classes Tailwind para estado ativo
+              button.classList.remove('bg-gray-50', 'text-gray-800');
+              button.classList.add('bg-emerald-600', 'text-white', 'rounded-b-none');
+            });
+
+            collapseElement.addEventListener('hide.bs.collapse', function () {
+              // Remove classes Tailwind do estado ativo e restaura padrão
+              button.classList.remove('bg-emerald-600', 'text-white', 'rounded-b-none');
+              button.classList.add('bg-gray-50', 'text-gray-800');
+            });
+          }
+        });
+      }
+
+    });
+  </script>
+  </body>
 </html>
